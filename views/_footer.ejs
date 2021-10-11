@@ -1,0 +1,14 @@
+<footer>Footer ...
+    <br>
+    <% if(!locals.user){%>
+    <a href="/users/signIn">SignIn</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="/users/signUp">SignUp</a>
+    &nbsp;&nbsp;&nbsp;
+    <%}%>
+    <a href="/users/home">home</a>
+    <%if(locals.user){%>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/users/signOut">SignOut</a>
+    <%}%>
+</footer>

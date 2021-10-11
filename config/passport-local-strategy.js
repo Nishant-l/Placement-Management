@@ -15,7 +15,7 @@ passport.use(new LocalStrategy({usernameField: 'email'},(email,password,done)=>{
             return done(null,false);
         }
         if(user && user.password == password){
-            return done(null,true);
+            return done(null,user);
         }
         return done(null,false);
     })

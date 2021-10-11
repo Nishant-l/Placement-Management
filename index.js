@@ -37,9 +37,7 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
 
-app.get('/',(req,res)=>{
-    res.end('running');
-})
+app.use('/',require('./routs'));
 
 app.listen(port,(err)=>{
     if(err){
