@@ -19,7 +19,7 @@ module.exports.home = (req,res)=>{
 }
 
 module.exports.formSignIn = (req,res)=>{
-    console.log(req.user);
+    // console.log(req.user);
     return res.redirect('home');
 }
 

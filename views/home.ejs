@@ -2,5 +2,19 @@
 <%if(locals.user){%>
     <%= locals.user.name%>
 <%}%>
-<h1></h1>
-<h1></h1>
+<h1>Student Info</h1>
+<form action="/students/form-input" method="POST">
+    <input type="text" name="name" placeholder="Name ..." required><br>
+    <input type="text" name="email" placeholder="email" required><br>
+    <input type="text" name="batch" placeholder="Batch" required><br>
+    <input type="text" name="collage" placeholder="Collage Name ..." required><br>
+    <h3 style="display: inline;">enter status of placement : </h3>
+    <input type="radio" name="status" value="true" id="true">
+    <label for="true">Placed</label>
+    <input type="radio" name="status" value="false" id="false" checked>
+    <label for="false">Not Placed</label><br>
+    <input type="number" name="dsaScore" required placeholder="dsa Score..."><br>
+    <input type="number" name="webDevScore" required placeholder="webDev Score..."><br>
+    <input type="number" name="reactScore" required placeholder="React Score..."><br>
+    <input type="submit" value="Submit">
+</form>

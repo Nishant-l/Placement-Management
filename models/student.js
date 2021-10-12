@@ -31,8 +31,13 @@ const studentSchama = mongoose.Schema({
         type:Number
     },
     interviews:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Company'
+        compony:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Company',
+        },
+        score:{
+            type:Number
+        }
     }]
 })
 
