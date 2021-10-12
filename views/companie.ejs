@@ -13,6 +13,6 @@
 </form>
 <aside>
     <%for(company of componies){%>
-        <a href=""><%= company.name %></a>
+        <a href="/company/markResult/<%= company._id %>"><%= company.name %></a>
     <%}%>
 </aside>

@@ -1,0 +1,8 @@
+<h1><%= compony.name %></h1>
+<h3>Date Of Interview: <%= compony.date %></h3>
+
+<ul>
+    <%for(student of compony.studentsApplied){%>
+        <li><%= student.name %></li>
+    <%}%>
+</ul>

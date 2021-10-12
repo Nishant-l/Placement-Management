@@ -30,3 +30,12 @@ module.exports.landing = (req,res)=>{
         })
     })
 }
+
+module.exports.displayInfo = (req,res)=>{
+    Company.findById(req.params.id)
+    .populate('studentsApplied')
+    .exec((err,compony)=>{
+        console.log(compony);
+        res.render('markResult',{compony:compony});
+    })
+}
