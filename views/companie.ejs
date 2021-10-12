@@ -1,0 +1,18 @@
+<h1>Add New Componey </h1>
+
+<form action="/company/form-input" method="POST">
+    <input type="text" name="name" required placeholder="Compony Name">
+    <input type="date" name="date" required>
+    <section>
+        <h4>Select Students to assign to Company</h4>
+        <% for (student of students) {%>
+            <input type="checkbox" name="studentsApplied" value=<%= student._id %>><%= student.name %> <br>
+        <%}%>
+    </section>
+    <input type="submit">
+</form>
+<aside>
+    <%for(company of componies){%>
+        <a href=""><%= company.name %></a>
+    <%}%>
+</aside>
