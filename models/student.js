@@ -34,9 +34,10 @@ const studentSchama = mongoose.Schema({
         compony:{
             type:mongoose.Schema.Types.ObjectId,
             ref:'Company',
+            required:true
         },
-        score:{
-            type:Number
+        result:{
+            type:String,
         }
     }]
 })

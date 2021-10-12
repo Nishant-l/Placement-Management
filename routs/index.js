@@ -7,6 +7,7 @@ router.get('/',(req,res)=>{
 router.use('/users',require('./users'));
 router.use('/students',require('./students'));
 router.use('/company',require('./companys'));
+router.use('/allInfo',require('./allInfo'));
 
 module.exports = router;
 

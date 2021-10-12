@@ -13,7 +13,6 @@ module.exports.formInput = (req,res)=>{
             console.log(student);
             const dummyy = {
                 compony:company._id,
-                score:100
             }
             student.interviews.push(dummyy);
             console.log(student.interviews);

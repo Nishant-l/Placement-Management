@@ -6,8 +6,12 @@
     <a href="/users/signUp">SignUp</a>
     &nbsp;&nbsp;&nbsp;
     <%}%>
-    <a href="/users/home">home</a>
     <%if(locals.user){%>
+        <a href="/users/home">home</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/company">Compony</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/allInfo">ALL Information</a>
         &nbsp;&nbsp;&nbsp;
         <a href="/users/signOut">SignOut</a>
     <%}%>
