@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/home.css">
 <h4>Home</h4>
 <%if(locals.user){%>
     <%= locals.user.name%>
@@ -18,3 +19,28 @@
     <input type="number" name="reactScore" required placeholder="React Score..."><br>
     <input type="submit" value="Submit">
 </form>
+
+<section>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Batch</th>
+            <th>Collage</th>
+            <th>Placement Status</th>
+            <th>DSA score</th>
+            <th>WebDev Score</th>
+            <th>React Score</th>
+          </tr>
+        <%for(std of student){%>
+        <tr>
+            <td><%= std.name %></td>
+            <td><%= std.batch%></td>
+            <td><%= std.collage%></td>
+            <td><%= std.status%></td>
+            <td><%= std.dsaScore%></td>
+            <td><%= std.webDevScore%></td>
+            <td><%= std.reactScore%></td>
+        </tr>
+        <%}%>
+    </table>
+</section>

@@ -10,6 +10,8 @@ const port = 8080;
 
 const app = express();
 
+app.use(express.static('./assets'));
+
 app.set('views','views');
 app.set('view engine','ejs');
 app.set('layout extractStyles',true);

@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Student = require('../models/student');
 
 module.exports.signIn = (req,res)=>{
     if(req.isAuthenticated()){
@@ -15,7 +16,14 @@ module.exports.signUp = (req,res)=>{
 }
 
 module.exports.home = (req,res)=>{
-    res.render('home');
+
+    Student.find({},(err,student)=>{
+        if(err){
+            res.redirect('back');
+            return;
+        }
+        res.render('home',{student,student});
+    })
 }
 
 module.exports.formSignIn = (req,res)=>{
