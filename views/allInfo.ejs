@@ -1,13 +1,15 @@
 <h1>All Info</h1>
 
 <%for(student of students){%>
-    <p><%= student.interviews.length %></p>
+    <p><%= student.name %></p>
     <ul>
         <%for(compony of student.interviews){%>
             <li>
                 <p><%= compony.compony.name %></p>
-                <p><%= compony.score %></p>
+                <p><%= compony.result %></p>
             </li>
         <%}%>
     </ul>
 <%}%>
+
+<a href="/allInfo/download">download</a>
