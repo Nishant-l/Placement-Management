@@ -1,8 +1,26 @@
 <h1><%= compony.name %></h1>
 <h3>Date Of Interview: <%= compony.date %></h3>
 
-<ul>
+<% let dummy = 'onHold'%>
+<form action="/company/result-form/<%= compony.id %>" method="POST">
+    <ol>
     <%for(student of compony.studentsApplied){%>
-        <li><%= student.name %></li>
+        <li>
+            <label for="<%= student._id %>">Update result for : <%= student.name %></label>
+            <select name="<%= student._id %>" id="<%= student._id %>">
+                <%for(inter of student.interviews){%>
+                    <%if(inter.compony.toString() === compony.id ){ %>
+                        <% dummy = inter.result%>
+                        <%console.log(dummy)%>
+                    <%}%>
+                <%}%>
+                <option value="Pass"   <% if( dummy == 'Pass')   {%> selected <%}%>     >Pass</option>
+                <option value="Fail"   <% if( dummy == 'Fail')   {%> selected <%}%>     >Fail</option>
+                <option value="OnHold" <% if( dummy == 'onHold') {%> selected <%}%>   >On Hold</option>
+                <option value="Absent" <% if( dummy == 'Absent') {%> selected <%}%>   >Absent</option>
+            </select>
+        </li>
     <%}%>
-</ul>
+    </ol>
+    <input type="submit" >
+</form>

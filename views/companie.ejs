@@ -12,7 +12,10 @@
     <input type="submit">
 </form>
 <aside>
-    <%for(company of componies){%>
-        <a href="/company/markResult/<%= company._id %>"><%= company.name %></a>
-    <%}%>
+    <h2>List of Componies</h2>
+    <ul>
+        <%for(company of componies){%>
+            <li><a href="/company/markResult/<%= company._id %>"><%= company.name %></a></li>
+        <%}%>
+    </ul>
 </aside>

@@ -13,9 +13,10 @@ module.exports.formInput = (req,res)=>{
             console.log(student);
             const dummyy = {
                 compony:company._id,
+                result:'onHold'
             }
             student.interviews.push(dummyy);
-            console.log(student.interviews);
+            // console.log(student.interviews);
             student.save();
         })
     };
@@ -31,11 +32,33 @@ module.exports.landing = (req,res)=>{
     })
 }
 
-module.exports.displayInfo = (req,res)=>{
+module.exports.markResult = (req,res)=>{
     Company.findById(req.params.id)
     .populate('studentsApplied')
     .exec((err,compony)=>{
-        console.log(compony);
         res.render('markResult',{compony:compony});
     })
+}
+
+module.exports.resultForm = (req,res)=>{
+    for (const [key, value] of Object.entries(req.body)) {
+        console.log(`${key}: ${value}`);
+        Students.findById(key,(err,student)=>{
+            if(err){
+                res.redirect(back);
+                return;
+            }
+            for(i of student.interviews){
+                if(i.compony.toString() === req.params.id){
+                    if(value == 'Pass'){
+                        student.status = true;
+                    }
+                    i.result = value;
+                    student.save();
+                }
+            }
+        })
+    }
+    // console.log(req.body);
+    res.redirect('back');
 }
