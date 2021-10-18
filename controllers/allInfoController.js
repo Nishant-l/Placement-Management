@@ -1,5 +1,7 @@
 const Student = require('../models/student');
 const Company = require('../models/company');
+const objectToCSV = require('objects-to-csv');
+const fs = require('fs');
 
 module.exports.fetchInfo = (req,res)=>{
     Student.find({})
@@ -28,7 +30,7 @@ module.exports.download = (req,res)=>{
             path:'compony'
         }
     })
-    .exec((err,student)=>{
+    .exec(async (err,student)=>{
         const finalObject = []
         for(std of student){
             const obj = {
@@ -47,8 +49,14 @@ module.exports.download = (req,res)=>{
             }
             finalObject.push(obj);
         }
+        const csv = new objectToCSV(finalObject);
+        await csv.toDisk('./test.csv');
+        console.log(await csv.toString());
         console.log(finalObject);
-        res.redirect('back');
+        return res.download('./test.csv',()=>{
+            fs.unlinkSync('./test.csv');
+        });
+        // res.redirect('back');
     })
 }
 
