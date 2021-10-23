@@ -1,23 +1,32 @@
-<header>
-    Header ...
-    <br>
-    <% if(!locals.user){%>
-    <a href="/users/signIn">SignIn</a>
-    &nbsp;&nbsp;&nbsp;
-    <a href="/users/signUp">SignUp</a>
-    <%}%>
-    <%if(locals.user){%>
-        <p>
-            <h3 style="display: inline;">User:--> <%= locals.user.name %></h3>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/users/signout">SignOut</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/users/home">home</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/company">Compony</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/allInfo">ALL Information</a>
-            &nbsp;&nbsp;&nbsp;
-        </p>
-    <%}%>
-</header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav nav-pills m-2 ">
+                <% if(!locals.user){%>
+                    <li class="nav-item me-5 m-2"><h5 style="display: inline;" class="p-2  bg-danger text-white rounded-pill">Placement Tracking System </h5></li>
+                    <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/signIn">SignIn</a></li>
+                    &nbsp;&nbsp;&nbsp;
+                    <li class="nav-item me-2"></li><a class="nav-link active p-2" aria-current="page" href="/users/signUp">SignUp</a></li>
+                <%}%>
+                <%if(locals.user){%>
+                    
+                        <li class="nav-item m-2"><h5 style="display: inline;" class="p-2  bg-danger text-white rounded-pill">User: <%= locals.user.name %></h5></li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/signout">SignOut</a></li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/home">home</a></li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/company">Compony</a></li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/allInfo">ALL Information</a></li>
+                        &nbsp;&nbsp;&nbsp;
+                    
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</nav>
+
