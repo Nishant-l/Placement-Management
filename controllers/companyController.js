@@ -41,7 +41,8 @@ module.exports.markResult = (req,res)=>{
 }
 
 module.exports.resultForm = (req,res)=>{
-    for (const [key, value] of Object.entries(req.body)) {
+    // the body of req returns an object with status of interview of all students who applied
+    for (const [key, value] of Object.entries(req.body)) { 
         console.log(`${key}: ${value}`);
         Students.findById(key,(err,student)=>{
             if(err){
@@ -50,15 +51,29 @@ module.exports.resultForm = (req,res)=>{
             }
             for(i of student.interviews){
                 if(i.compony.toString() === req.params.id){
+                    // updeating the placement status of student to true if the result of interview is Pass
                     if(value == 'Pass'){
                         student.status = true;
                     }
+                    // updeating placement status of student when the result is false but cheaking if the student is passed in some other interview
+                    else{
+                        let trueCount = 0;
+                        for(ii of student.interviews){
+                            if(ii.compony.toString() != req.params.id && ii.result=='Pass'){
+                                trueCount++;
+                                break;
+                            }
+                        }
+                        if(trueCount==0){
+                            student.status = false;
+                        }
+                    }
+                    // saving the status of that perticular interview
                     i.result = value;
                     student.save();
                 }
             }
         })
     }
-    // console.log(req.body);
     res.redirect('back');
 }
