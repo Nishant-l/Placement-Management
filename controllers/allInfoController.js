@@ -3,6 +3,7 @@ const Company = require('../models/company');
 const objectToCSV = require('objects-to-csv');
 const fs = require('fs');
 
+//-----------------------------------------------------------------------------------------------------------------------
 module.exports.fetchInfo = (req,res)=>{
     Student.find({})
     .populate({
@@ -15,16 +16,11 @@ module.exports.fetchInfo = (req,res)=>{
         res.render('allInfo',{students:student});
     })
 }
-// const obj = {
-//     name:student.name,
-//     email:student.email,
-//     batch:student.batch,
-// }
-// const finalObject =
 
-module.exports.download = (req,res)=>{
-    Student.find({})
-    .populate({
+//-----------------------------------------------------------------------------------------------------------------------
+module.exports.download = (req,res)=>{ //download file as CSV
+    Student.find({}) //find all student
+    .populate({ //populate the inturview part with componies details
         path:'interviews',
         populate:{
             path:'compony'
@@ -51,13 +47,13 @@ module.exports.download = (req,res)=>{
         }
         const csv = new objectToCSV(finalObject);
         await csv.toDisk('./test.csv');
-        console.log(await csv.toString());
-        console.log(finalObject);
+        // console.log(await csv.toString());
+        // console.log(finalObject);
         return res.download('./test.csv',()=>{
             fs.unlinkSync('./test.csv');
         });
         // res.redirect('back');
     })
 }
-
+//-----------------------------------------------------------------------------------------------------------------------
 

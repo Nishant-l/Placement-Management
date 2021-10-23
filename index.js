@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const mongoStore = require('connect-mongo');
 const layout = require('express-ejs-layouts');
+const flsah = require('connect-flash');
+const customMiddleware = require('./config/middleware');
 const port = 8080;
 
 const app = express();
@@ -37,6 +39,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+// setting up middleware for flesh messages
+app.use(flsah());
+app.use(customMiddleware.setFlash);
 
 
 app.use('/',require('./routs'));

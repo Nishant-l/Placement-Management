@@ -1,29 +1,35 @@
 const Students = require('../models/student');
 const Company = require('../models/company');
 
+//------------------------------------------------------------------------------------------------------------
+// control to handel the form input of creating new compony
 module.exports.formInput = (req,res)=>{
-  Company.create(req.body,(err,company)=>{
+  Company.create(req.body,(err,company)=>{ //create new entry in database
     if(err){
         console.log('erroe occured while creating new Company');
+        req.flash('error',`erroe occured while creating new Company`);
         return res.redirect('back');
     }
-    for(apliedStudent of company.studentsApplied){
+    for(apliedStudent of company.studentsApplied){ //iterate over list of student who were assigned to compony
         console.log(req.body.studentsApplied);
-        Students.findById(apliedStudent,(err,student)=>{
+        Students.findById(apliedStudent,(err,student)=>{ //find student from student table
             console.log(student);
-            const dummyy = {
+            const dummyy = {  // creates object of interview ---> compony relation
                 compony:company._id,
-                result:'onHold'
+                result:'OnHold'
             }
-            student.interviews.push(dummyy);
+            student.interviews.push(dummyy); //update the student intrview array by pushing the compony to it
             // console.log(student.interviews);
             student.save();
         })
     };
+    req.flash('success',`compony ${company.name} created Successfully`);
     return res.redirect('back');
   })
 };
 
+//-----------------------------------------------------------------------------------------------------------------------
+// renders compony page with form to create new compony and list of student and previously created compony
 module.exports.landing = (req,res)=>{
     Students.find({},(err,students)=>{
         Company.find({},(err,componies)=>{
@@ -32,6 +38,8 @@ module.exports.landing = (req,res)=>{
     })
 }
 
+//-----------------------------------------------------------------------------------------------------------------------
+// renders page with a specific Compony and list of all students who applied for it
 module.exports.markResult = (req,res)=>{
     Company.findById(req.params.id)
     .populate('studentsApplied')
@@ -40,12 +48,14 @@ module.exports.markResult = (req,res)=>{
     })
 }
 
+//-----------------------------------------------------------------------------------------------------------------------
 module.exports.resultForm = (req,res)=>{
     // the body of req returns an object with status of interview of all students who applied
     for (const [key, value] of Object.entries(req.body)) { 
         console.log(`${key}: ${value}`);
         Students.findById(key,(err,student)=>{
             if(err){
+                req.flash('error',`${student.name} not found`);
                 res.redirect(back);
                 return;
             }
@@ -75,5 +85,7 @@ module.exports.resultForm = (req,res)=>{
             }
         })
     }
-    res.redirect('back');
+    req.flash('success','Results Updated Successfully');
+    return res.redirect('back');
 }
+//-----------------------------------------------------------------------------------------------------------------------
