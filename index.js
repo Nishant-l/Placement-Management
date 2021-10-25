@@ -8,7 +8,7 @@ const mongoStore = require('connect-mongo');
 const layout = require('express-ejs-layouts');
 const flsah = require('connect-flash');
 const customMiddleware = require('./config/middleware');
-const port = 8080;
+const port = 8000;
 
 const app = express();
 

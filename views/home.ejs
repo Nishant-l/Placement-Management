@@ -4,12 +4,12 @@
     <%= locals.user.name%>
 <%}%>
 <h1>Student Info</h1>
-<form action="/students/form-input" method="POST">
-    <!-- <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail3">
-    </div> -->
+
+<form action="/students/form-input" method="POST" class="student-input-form m-3">
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
     <input type="text" name="name" placeholder="Name ..." required><br>
     <input type="text" name="email" placeholder="email" required><br>
     <input type="text" name="batch" placeholder="Batch" required><br>
