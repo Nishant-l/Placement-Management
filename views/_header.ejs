@@ -6,14 +6,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav nav nav-pills m-2 ">
                 <% if(!locals.user){%>
-                    <li class="nav-item me-5 m-2"><h5 style="display: inline;" class="p-2  bg-danger text-white rounded-pill">Placement Tracking System </h5></li>
+                    <li class="nav-item me-5 m-2"><h5 style="display: inline; color: white; border-top: 3px solid white; border-bottom: 3px solid white; padding: 4px;" >Placement Tracking System </h5></li>
                     <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/signIn">SignIn</a></li>
                     &nbsp;&nbsp;&nbsp;
                     <li class="nav-item me-2"></li><a class="nav-link active p-2" aria-current="page" href="/users/signUp">SignUp</a></li>
                 <%}%>
                 <%if(locals.user){%>
-                    
-                        <li class="nav-item m-2"><h5 style="display: inline;" class="p-2  bg-danger text-white rounded-pill">User: <%= locals.user.name %></h5></li>
+                        <li class="nav-item me-5 m-2"><h5 style="display: inline; color: white; border-top: 3px solid white; border-bottom: 3px solid white; padding: 4px;" >Placement Tracking System </h5></li>
+                        <li class="nav-item m-2"><h5 style="display: inline; color: white; border-top: 3px solid white; border-bottom: 3px solid white; padding: 4px;" >User: <%= locals.user.name %></h5></li>
                         &nbsp;&nbsp;&nbsp;
                         <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/signout">SignOut</a></li>
                         &nbsp;&nbsp;&nbsp;
