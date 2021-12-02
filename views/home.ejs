@@ -1,31 +1,87 @@
 <link rel="stylesheet" href="/css/home.css">
-<h4>Home</h4>
-<%if(locals.user){%>
-    <%= locals.user.name%>
-<%}%>
-<h1>Student Info</h1>
-
-<form action="/students/form-input" method="POST" class="student-input-form m-3">
-    <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+<div class="form">
+<h4 style="margin-left: 40%;">Home</h4>
+<section id>
+    <div class="card text-center">
+        <div class="card-header">
+          <!-- To Create New Student -->
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Create new Student</h5>
+            <p class="card-text">Click on the following button, enter details and click submit to create new student</p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Create New Student
+            </button>
+        </div>
+        <div class="card-footer text-muted">
+          <!-- 2 days ago -->
+        </div>
       </div>
-    <input type="text" name="name" placeholder="Name ..." required><br>
-    <input type="text" name="email" placeholder="email" required><br>
-    <input type="text" name="batch" placeholder="Batch" required><br>
-    <input type="text" name="collage" placeholder="Collage Name ..." required><br>
-    <h3 style="display: inline;">enter status of placement : </h3>
-    <input type="radio" name="status" value="true" id="true">
-    <label for="true">Placed</label>
-    <input type="radio" name="status" value="false" id="false" checked>
-    <label for="false">Not Placed</label><br>
-    <input type="number" name="dsaScore" required placeholder="dsa Score..."><br>
-    <input type="number" name="webDevScore" required placeholder="webDev Score..."><br>
-    <input type="number" name="reactScore" required placeholder="React Score..."><br>
-    <input type="submit" value="Submit">
-</form>
 
-<section>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/students/form-input" method="POST" class="student-input-form m-3">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" placeholder="Name ..." required id="name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="text" name="email" placeholder="email" required id="email" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="batch" class="form-label">Batch</label>
+                    <input type="text" name="batch" placeholder="Batch" required id="batch" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="collName" class="form-label">Collage Name</label>
+                    <input type="text" name="collage" placeholder="Collage Name ..." required id="collName" class="form-control">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">DSA score</label>
+                        <input type="number" name="dsaScore" required placeholder="dsa Score..." class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">WEB DEV score</label>
+                        <input type="number" name="webDevScore" required placeholder="webDev Score..." class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">REACT score</label>
+                        <input type="number" name="reactScore" required placeholder="React Score..." class="form-control">
+                    </div>
+                </div>
+                <h5 >Enter Student Placement Status : </h5>
+                <div class="form-check">
+                    <label for="true" class="form-check-label">Placed</label>
+                    <input type="radio" name="status" value="true" id="true" class="form-check-input">
+                </div>
+                <div class="form-check">
+                    <label for="false" class="form-check-label">Not Placed</label>
+                    <input type="radio" name="status" value="false" id="false" checked class="form-check-input">
+                </div>
+                <!-- <input type="submit" value="Submit"> -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<h1 style="margin-left: 42vw; margin-top: 8px;">Student Info</h1>
+<section class="tablee">
     <table class="table table-dark table-striped">
         <tr>
             <th>Name</th>

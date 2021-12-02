@@ -1,3 +1,12 @@
-.student-input-form{
-    width: 20%;
+.form{
+    width: 38%;
+    margin:auto;
+    margin-top: 10px;
+}
+.tablee{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 6px;
+    border-top: 6px solid #777;
 }
