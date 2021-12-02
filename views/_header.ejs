@@ -15,15 +15,22 @@
                         <li class="nav-item me-5 m-2"><h5 style="display: inline; color: white; border-top: 3px solid white; border-bottom: 3px solid white; padding: 4px;" >Placement Tracking System </h5></li>
                         <li class="nav-item m-2"><h5 style="display: inline; color: white; border-top: 3px solid white; border-bottom: 3px solid white; padding: 4px;" >User: <%= locals.user.name %></h5></li>
                         &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/signout">SignOut</a></li>
-                        &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/home">home</a></li>
+                        <li style="margin-left: 90px;" class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/home">home</a></li>
                         &nbsp;&nbsp;&nbsp;
                         <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/company">Compony</a></li>
                         &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/allInfo">ALL Information</a></li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link active p-2" aria-current="page" href="/allInfo/download">
+                                <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                                Download All Info As CSV
+                            </a>
+                        </li>
                         &nbsp;&nbsp;&nbsp;
-                    
+                        <li class="nav-item me-2"><a class="nav-link active p-2" aria-current="page" href="/users/signout">SignOut</a></li>
+                        &nbsp;&nbsp;&nbsp;
                 <%}%>
             </ul>
         </div>

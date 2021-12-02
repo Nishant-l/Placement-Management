@@ -33,6 +33,11 @@ module.exports.download = (req,res)=>{ //download file as CSV
                 name:std.name,
                 email:std.email,
                 batch:std.batch,
+                Collage_Name:std.collage,
+                DSA_Marks:std.dsaScore,
+                WEB_DEV_Marks:std.webDevScore,
+                REACT_Marks:std.reactScore,
+                Overall_placement_status:std.status?'true':'false',
             };
             let c = 'compony';
             let count = 1;
