@@ -1,21 +1,55 @@
-<h1>Add New Componey </h1>
+<link rel="stylesheet" href="/css/compones.css">
+<div class="container px-4">
+    <div class="row gx-5">
+      <div class="col">
+       <div class="p-3 border bg-light">
+        <div class="form">
+            <h1>Add New Componey </h1>
+            <form action="/company/form-input" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Componey Name</label>
+                    <input type="text" name="name" required placeholder="Compony Name" class="form-control" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" name="date" required class="form-control" id="date">
+                </div>
+                <section>
+                    <h4>Select Students to assign to Company</h4>
+                    <ul class="list-group">
+                    <% for (student of students) {%>
+                        <li class="list-group-item">
+                        <div class="form-check">
+                        <input class="form-check-input me-1" type="checkbox" name="studentsApplied" id=<%= student._id %> value=<%= student._id %> >
+                        <label for=<%= student._id %> class="form-check-label" >
+                            <%= student.name %>
+                        </label>
+                        </div>
+                        </li>
+                    <%}%>
+                    </ul>
+                </section>
+                <!-- <input type="submit"> -->
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit" >Submit form</button>
+                </div>
+            </form>
+        </div>
+       </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border bg-light">
+            <aside>
+                <h2>List of Componies</h2>
+                <ul>
+                    <%for(company of componies){%>
+                        <li><a class="btn btn-warning" href="/company/markResult/<%= company._id %>"><%= company.name %></a></li>
+                    <%}%>
+                </ul>
+            </aside>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<form action="/company/form-input" method="POST">
-    <input type="text" name="name" required placeholder="Compony Name">
-    <input type="date" name="date" required>
-    <section>
-        <h4>Select Students to assign to Company</h4>
-        <% for (student of students) {%>
-            <input type="checkbox" name="studentsApplied" value=<%= student._id %>><%= student.name %> <br>
-        <%}%>
-    </section>
-    <input type="submit">
-</form>
-<aside>
-    <h2>List of Componies</h2>
-    <ul>
-        <%for(company of componies){%>
-            <li><a href="/company/markResult/<%= company._id %>"><%= company.name %></a></li>
-        <%}%>
-    </ul>
-</aside>
+

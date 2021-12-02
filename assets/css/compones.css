@@ -1,0 +1,15 @@
+.form{
+    margin-top: 30px;
+}
+h1,h2,h3,h4{
+    text-align: center;
+}
+button{
+   margin-top: 20px;
+}
+aside li a{
+    margin-top: 10px;
+}
+aside li{
+    display: inline;
+}
