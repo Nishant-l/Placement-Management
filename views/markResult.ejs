@@ -1,4 +1,5 @@
-<h1><%= compony.name %></h1>
+<link rel="stylesheet" href="/css/markResults.css">
+<h1 ><%= compony.name %></h1>
 <h3>Date Of Interview: <%= compony.date %></h3>
 
 <% let dummy = 'onHold'%>
@@ -6,8 +7,8 @@
     <ol>
     <%for(student of compony.studentsApplied){%>
         <li>
-            <label for="<%= student._id %>">Update result for : <%= student.name %></label>
-            <select name="<%= student._id %>" id="<%= student._id %>">
+            <label class="form-label" for="<%= student._id %>">Update result for : <%= student.name %></label>
+            <select class="form-select" name="<%= student._id %>" id="<%= student._id %>">
                 <%for(inter of student.interviews){%>
                     <%if(inter.compony.toString() === compony.id ){ %>
                         <% dummy = inter.result%>
@@ -22,5 +23,5 @@
         </li>
     <%}%>
     </ol>
-    <input type="submit" >
+    <button type="submit" class="btn btn-dark">Submit</button>
 </form>

@@ -1,0 +1,12 @@
+h1,h3{
+    margin-top: 10px;
+    text-align: center;
+}
+form{
+    width: 50%;
+    margin: auto;
+}
+button{
+    width: 80%;
+    margin-left: 15%;
+}
