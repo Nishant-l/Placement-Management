@@ -8,7 +8,7 @@ module.exports.formInpute = (req,res)=>{
             req.flash('error',`${req.body.email} alredy exists try with different email`);
             return res.redirect('back');
         }
-        console.log(student);
+        // console.log(student);
         req.flash('success',`student ${student.name} created Successfully`);
         return res.redirect('back');
     })

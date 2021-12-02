@@ -12,7 +12,6 @@
                 <%for(inter of student.interviews){%>
                     <%if(inter.compony.toString() === compony.id ){ %>
                         <% dummy = inter.result%>
-                        <%console.log(dummy)%>
                     <%}%>
                 <%}%>
                 <option value="Pass"   <% if( dummy == 'Pass')   {%> selected <%}%>     >Pass</option>

@@ -11,9 +11,9 @@ module.exports.formInput = (req,res)=>{
         return res.redirect('back');
     }
     for(apliedStudent of company.studentsApplied){ //iterate over list of student who were assigned to compony
-        console.log(req.body.studentsApplied);
+        // console.log(req.body.studentsApplied);
         Students.findById(apliedStudent,(err,student)=>{ //find student from student table
-            console.log(student);
+            // console.log(student);
             const dummyy = {  // creates object of interview ---> compony relation
                 compony:company._id,
                 result:'OnHold'
@@ -52,7 +52,7 @@ module.exports.markResult = (req,res)=>{
 module.exports.resultForm = (req,res)=>{
     // the body of req returns an object with status of interview of all students who applied
     for (const [key, value] of Object.entries(req.body)) { 
-        console.log(`${key}: ${value}`);
+        // console.log(`${key}: ${value}`);
         Students.findById(key,(err,student)=>{
             if(err){
                 req.flash('error',`${student.name} not found`);
