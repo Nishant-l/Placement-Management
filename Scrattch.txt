@@ -1,9 +1,0 @@
-student.interviews.filter((co)=>{`${co.id}` == `new ObjectId("${company.id}")`})
-                <%console.log(student.interviews[0].compony.toString()) %>
-
-
-                <%console.log(student.interviews[0].compony.toString() === company.id) %>
-                <%console.log(company.id) %>
- // compony.studentsApplied.map()
-// console.log(compony.studentsApplied);
-// console.log(compony.studentsApplied[0].interviews);
